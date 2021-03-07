@@ -1,6 +1,4 @@
 node_modules
 DS_Store
 
-
-people.csv
-groups.csv
+*.csv

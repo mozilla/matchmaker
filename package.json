@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/mozilla/wonut#readme",
   "dependencies": {
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "shuffle-array": "^1.0.1",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
