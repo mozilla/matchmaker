@@ -1,0 +1,31 @@
+{
+  "name": "wonut",
+  "version": "1.0.0",
+  "description": "Match generator for creating internal donut style groups.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint **/*.js",
+    "lintfix": "eslint **/*.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mozilla/wonut.git"
+  },
+  "author": "tublitzed@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mozilla/wonut/issues"
+  },
+  "homepage": "https://github.com/mozilla/wonut#readme",
+  "dependencies": {
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  }
+}
