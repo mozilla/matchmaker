@@ -8,14 +8,29 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 const outputHeaders = [{
     id: 'group',
-    title: 'GROUP'
+    title: 'Group Number'
   }, {
-    id: 'name',
-    title: 'NAME'
+    id: 'firstName',
+    title: 'First Name'
+  },
+  {
+    id: 'lastName',
+    title: 'Last Name'
   },
   {
     id: 'email',
-    title: 'EMAIL'
+    title: 'Email'
+  },
+  {
+    id: 'timezone',
+    title: 'Timezone'
+  },
+  {
+    id: 'timezoneAlt',
+    title: 'Timezone (Write-in)'
+  }, {
+    id: 'signupTimestamp',
+    title: 'Signup Timestamp'
   }
 ];
 
@@ -34,7 +49,11 @@ class Groups {
       .on('data', (data) => {
         results.push({
           email: data['Email Address'],
-          name: data.Name
+          firstName: data['First Name'],
+          lastName: data['Last Name'],
+          timezone: data['Time Zone'],
+          timezoneAlt: data['If other, please list'],
+          signupTimestamp: data.Timestamp,
         });
       })
       .on('end', () => {
@@ -60,8 +79,7 @@ class Groups {
       }
       groups.push({
         group: groupNumber,
-        name: personData.name,
-        email: personData.email
+        ...personData
       });
       counter += 1;
     });
