@@ -38,13 +38,13 @@ This will split a list of users into randomly selected groups. The default group
 
 From the dist folder, run:
 
-- `node main.js --type=donut`.
+- `node app.js --type=donut`.
 
 By default, this will use the examples/donut/input.csv file and generate a `donut-output-local.csv` file.
 
 #### optional args
 
-Usage example: `node main.js --type=donut --size=2 --output=foo.csv` to set group size to 2 and change the name of output file.
+Usage example: `node app.js --type=donut --size=2 --output=foo.csv` to set group size to 2 and change the name of output file.
 
 - `size` - control group size. defaults to 3.
 - `input` - set input file. defaults to `examples/donut/input.csv`.
@@ -56,10 +56,8 @@ This will split a list of people who have signalled their desire to be mentors/m
 
 From the dist folder, run:
 
-- `node main.js --type=mentorship`.
+- `node app.js --type=mentorship`.
 
 #### optional args
-- `addPeopleData` - boolean - defaults to false. When enabled, this will use content from people.mozilla.org and combine timezone, and reporting chain information into final results. Usage - `node main.js --type=mentorship --addPeopleData`.
 
-
-
+- `addPeopleData` - boolean - defaults to false. When enabled, this will use content from people.mozilla.org and combine timezone, and reporting chain information into final results. Usage - `node app.js --type=mentorship --addPeopleData`.
