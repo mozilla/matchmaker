@@ -1,7 +1,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+**Table of Contents**
 
 - [matchmaker](#matchmaker)
   - [development](#development)
@@ -47,9 +47,19 @@ By default, this will use the examples/donut/input.csv file and generate a `donu
 Usage example: `node main.js --type=donut --size=2 --output=foo.csv` to set group size to 2 and change the name of output file.
 
 - `size` - control group size. defaults to 3.
-- `input` - set input file. defaults to `examples/donut/input.csv`
+- `input` - set input file. defaults to `examples/donut/input.csv`.
 - `output` - set output file. defaults to `donut-output-local.csv`.
 
 ### mentorship mode
 
-(coming soon)
+This will split a list of people who have signalled their desire to be mentors/mentees into randomized mentor/mentee pairs.
+
+From the dist folder, run:
+
+- `node main.js --type=mentorship`.
+
+#### optional args
+- `addPeopleData` - boolean - defaults to false. When enabled, this will use content from people.mozilla.org and combine timezone, and reporting chain information into final results. Usage - `node main.js --type=mentorship --addPeopleData`.
+
+
+

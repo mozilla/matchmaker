@@ -5,6 +5,6 @@ DS_Store
 !examples/donut/input.csv
 !examples/donut/output.csv
 !examples/mentorship/output.csv
-!examples/mentorship/output.csv
-
+!examples/mentorship/input.csv
+!examples/mentorship/input-people-data.csv
 /dist
