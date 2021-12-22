@@ -2,5 +2,9 @@ node_modules
 DS_Store
 
 *.csv
+!examples/donut/input.csv
+!examples/donut/output.csv
+!examples/mentorship/output.csv
+!examples/mentorship/output.csv
 
 /dist

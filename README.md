@@ -1,3 +1,17 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [matchmaker](#matchmaker)
+  - [development](#development)
+  - [usage](#usage)
+    - [donut mode](#donut-mode)
+      - [optional args](#optional-args)
+    - [mentorship mode](#mentorship-mode)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # matchmaker
 
 Matchmaking utility serving a few purposes:
@@ -15,13 +29,27 @@ See examples/ for required input format and sample output.
 ## usage
 
 1. Make sure you have node installed.
-1. `npm i` - install dependencies.
-1. `node index.js` - default will generate groups (placed into `groups.csv`) and look for a `people.csv` file in the same dir as `index.js`.
+1. `npm i && npm run build` - install dependencies and build.
+1. `cd dist` - run from dist dir. See options for running below:
 
-## optional args
+### donut mode
 
-Usage example: `node index.js --size=2 --output=foo.csv` to set group size to 2 and change the name of output file.
+This will split a list of users into randomly selected groups. The default group size is `3` but you can configure this.
+
+From the dist folder, run:
+
+- `node main.js --type=donut`.
+
+By default, this will use the examples/donut/input.csv file and generate a `donut-output-local.csv` file.
+
+#### optional args
+
+Usage example: `node main.js --type=donut --size=2 --output=foo.csv` to set group size to 2 and change the name of output file.
 
 - `size` - control group size. defaults to 3.
-- `file` - set input file. defaults to `people.csv` in same dir as `index.js`
-- `output` - set output file. defaults to `groups.csv`.
+- `input` - set input file. defaults to `examples/donut/input.csv`
+- `output` - set output file. defaults to `donut-output-local.csv`.
+
+### mentorship mode
+
+(coming soon)

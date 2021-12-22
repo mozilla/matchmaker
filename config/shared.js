@@ -22,16 +22,16 @@ const sharedConfig = {
   },
   resolve: {
     extensions: ['.js'],
-    alias: {},
+    alias: {
+      '@constants': path.resolve(__dirname, `${SRC_PATH}/helpers/constants.js`),
+      '@helpers': path.resolve(__dirname, `${SRC_PATH}/helpers/`),
+    },
     fallback: {
       assert: require.resolve('assert'),
       fs: false,
       path: require.resolve('path-browserify'),
     },
   },
-  // plugins: [
-  //   new NodePolyfillPlugin()
-  // ]
 };
 
 module.exports = sharedConfig;

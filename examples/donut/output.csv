@@ -1,0 +1,13 @@
+Group Number,First Name,Last Name,Email,Timezone,Timezone (Write-in),Signup Timestamp
+1, Foo9, Bar,example9@bar.com, ET (UTC-5), '', 3/24/2021 8:14:08
+1, Foo12, Bar,example12@bar.com, ET (UTC -5), '', 3/26/2021 8:14:08
+1, Foo5, Bar,example5@bar.com, CET (UTC +1), '', 3/22/2021 7:12:17
+2, Foo8, Bar,example8@bar.com, ET (UTC-5), '', 3/23/2021 3:14:08
+2, Foo6, Bar,example6@bar.com, ET (UTC-5), '', 3/22/2021 18:15:21
+2, Foo10, Bar,example10@bar.com, ET (UTC-5), '', 3/25/2021 8:14:08
+3, Foo7, Bar,example7@bar.com, ET (UTC-5), 'work odd hours', 3/22/2021 19:03:05
+3, Foo2, Bar,example2@bar.com, ET (UTC-5), '', 3/21/2021 5:23:54
+3, Foo4, Bar,example4@bar.com, ET (UTC-5), '', 3/21/2021 14:14:03
+4, Foo3, Bar,example3@bar.com, ET (UTC-5), '', 3/21/2021 5:29:32
+4, Foo1, Bar,example1@bar.com, ET (UTC-5), '', 3/10/2021 8:14:08
+4, Foo11, Bar,example11@bar.com, PT (UTC -8), '', 3/26/2021 8:14:08
