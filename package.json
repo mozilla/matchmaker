@@ -1,5 +1,5 @@
 {
-  "name": "wonut",
+  "name": "matchmaker",
   "version": "1.0.0",
   "description": "Match generator for creating internal donut style groups.",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mozilla/wonut.git"
+    "url": "git+https://github.com/mozilla/matchmaker.git"
   },
   "author": "tublitzed@gmail.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mozilla/wonut/issues"
+    "url": "https://github.com/mozilla/matchmaker/issues"
   },
-  "homepage": "https://github.com/mozilla/wonut#readme",
+  "homepage": "https://github.com/mozilla/matchmaker#readme",
   "dependencies": {
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
