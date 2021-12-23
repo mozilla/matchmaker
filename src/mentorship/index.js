@@ -3,6 +3,7 @@ const argv = require('yargs/yargs')(process.argv.slice(2)).argv;
 const fs = require('fs');
 const csv = require('csv-parser');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+const shuffle = require('shuffle-array');
 
 import {
   SAMPLES_DIR_MENTORSHIP,
@@ -10,6 +11,7 @@ import {
   TYPE_MENTOR,
   TYPE_MENTEE,
   TYPE_BOTH,
+  PMO_PERSON_PREFIX,
 } from '@constants';
 
 const PATH_TO_ROOT = '../';
@@ -21,7 +23,7 @@ const Mentorship = {
       return Mentorship.addPeopleData();
     }
 
-    return Mentorship.generate();
+    return Mentorship.generate(null);
   },
 
   formatEmail: (srcEmail) => {
@@ -43,7 +45,7 @@ const Mentorship = {
           location: data['Location'],
           manager: data['Manager'],
           name: data['Name'],
-          slug: data['Slug'],
+          pmoLink: data['Slug'] ? `${PMO_PERSON_PREFIX}${data['Slug']}` : '',
           title: data['Title'],
         };
       })
@@ -63,7 +65,7 @@ const Mentorship = {
     return TYPE_BOTH;
   },
 
-  processInputData: (data, peopleData = {}) => {
+  processInputData: (data, peopleData) => {
     const formattedEmail = Mentorship.formatEmail(data['Email Address']);
     if (!formattedEmail) {
       return false;
@@ -91,14 +93,36 @@ const Mentorship = {
       timezoneDetails:
         data[
           'We will use your timezone to help make matches. Please let us know if you work atypical hours for your timezone.'
-        ],
+        ] || '',
       specialRequests:
-        data['Do you have any request or needs that you want to mention?'],
+        data['Do you have any request or needs that you want to mention?'] ||
+        '',
+      canMentorMultiple:
+        data[
+          'If you volunteered as a mentor, are you open to mentoring multiple people?'
+        ] || '',
+      mentor: 'unassigned',
+      mentee: 'unassigned',
       ...extraData,
     };
   },
 
-  generate: (peopleData = {}) => {
+  updateByEmailAddress: (email, values = {}, peopleArray) => {
+    const index = peopleArray.findIndex((person) => {
+      return person.email === email;
+    });
+    if (index === -1) {
+      console.log(`Unable to find by email: ${email}`);
+      return peopleArray;
+    }
+    peopleArray[index] = {
+      ...peopleArray[index],
+      ...values,
+    };
+    return peopleArray;
+  },
+
+  generate: (peopleData = null) => {
     const outputFile =
       argv.output || `${PATH_TO_ROOT}mentorship-output-local.csv`;
     const inputFile = argv.input || `${SAMPLES_DIR}input.csv`;
@@ -112,8 +136,81 @@ const Mentorship = {
         }
       })
       .on('end', () => {
-        console.log('finished generating. results: ', results);
+        const matchedResults = Mentorship.createMatches(results);
+        const csvWriter = createCsvWriter({
+          path: outputFile,
+          header: OUTPUT_HEADERS_MENTORSHIP,
+        });
+        csvWriter
+          .writeRecords(matchedResults)
+          .then(() =>
+            console.info(
+              `Matches created! Open ${outputFile} to see the results.`
+            )
+          );
       });
+  },
+
+  assignMatches: (
+    srcPeopleArray,
+    peopleArrayToMatchWith,
+    allPeople,
+    matchKey
+  ) => {
+    srcPeopleArray.forEach((person, index) => {
+      const match = peopleArrayToMatchWith[index];
+      if (match && match.email !== person.email) {
+        //First, update the person who is being matched:
+        allPeople = Mentorship.updateByEmailAddress(
+          person.email,
+          {
+            [matchKey]: match.email,
+            [`${matchKey}Location`]: match.location || '',
+          },
+          allPeople
+        );
+
+        // Then, update the person who they have been matched with:
+        const altMatchKey = matchKey === 'mentor' ? 'mentee' : 'mentor';
+        allPeople = Mentorship.updateByEmailAddress(
+          match.email,
+          {
+            [altMatchKey]: person.email,
+            [`${altMatchKey}Location`]: person.location || '',
+          },
+          allPeople
+        );
+      }
+    });
+    return allPeople;
+  },
+
+  /**
+   * Will match by shuffling mentors, mentees, and then making as many matches as possible.
+   *
+   * @param {Array} people
+   * @returns {Array} people with match data added
+   */
+  createMatches: (people) => {
+    var mentors = [];
+    var mentees = [];
+    people.forEach((person) => {
+      if ([TYPE_BOTH, TYPE_MENTOR].indexOf(person.type) !== -1) {
+        mentors.push(person);
+      }
+      if ([TYPE_BOTH, TYPE_MENTEE].indexOf(person.type) !== -1) {
+        mentees.push(person);
+      }
+    });
+
+    mentors = shuffle(mentors);
+    mentees = shuffle(mentees);
+    if (mentees.length > mentors.length) {
+      people = Mentorship.assignMatches(mentees, mentors, people, 'mentor');
+    } else {
+      people = Mentorship.assignMatches(mentors, mentees, people, 'mentee');
+    }
+    return people;
   },
 };
 

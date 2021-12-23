@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents**
 
 - [matchmaker](#matchmaker)
   - [development](#development)
@@ -9,6 +8,7 @@
     - [donut mode](#donut-mode)
       - [optional args](#optional-args)
     - [mentorship mode](#mentorship-mode)
+      - [optional args](#optional-args-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -60,4 +60,4 @@ From the dist folder, run:
 
 #### optional args
 
-- `addPeopleData` - boolean - defaults to false. When enabled, this will use content from people.mozilla.org and combine timezone, and reporting chain information into final results. Usage - `node app.js --type=mentorship --addPeopleData`.
+- `addPeopleData` - boolean - defaults to false. When enabled, this will use content from people.mozilla.org and combine timezone, and reporting chain information into final results. Up to date content to use here can be collected via an add-on. Contact [Rachel](https://github.com/tublitzed/) for access. Usage - `node app.js --type=mentorship --addPeopleData`.

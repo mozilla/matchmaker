@@ -42,7 +42,7 @@ const Donut = {
           .writeRecords(groups)
           .then(() =>
             console.info(
-              `Groups created! Open ${outputFile} to see the results`
+              `Groups created! Open ${outputFile} to see the results.`
             )
           );
       });
