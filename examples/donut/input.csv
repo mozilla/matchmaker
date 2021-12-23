@@ -1,0 +1,13 @@
+Email Address,First Name,Last Name,Time Zone,Time Zone Details,Timestamp
+example1@bar.com, Foo1, Bar, ET (UTC-5), '', 3/10/2021 8:14:08
+example2@bar.com, Foo2, Bar, ET (UTC-5), '', 3/21/2021 5:23:54
+example3@bar.com, Foo3, Bar, ET (UTC-5), '', 3/21/2021 5:29:32
+example4@bar.com, Foo4, Bar, ET (UTC-5), '', 3/21/2021 14:14:03
+example5@bar.com, Foo5, Bar, CET (UTC +1), '', 3/22/2021 7:12:17
+example6@bar.com, Foo6, Bar, ET (UTC-5), '', 3/22/2021 18:15:21
+example7@bar.com, Foo7, Bar, ET (UTC-5), 'work odd hours', 3/22/2021 19:03:05
+example8@bar.com, Foo8, Bar, ET (UTC-5), '', 3/23/2021 3:14:08
+example9@bar.com, Foo9, Bar, ET (UTC-5), '', 3/24/2021 8:14:08
+example10@bar.com, Foo10, Bar, ET (UTC-5), '', 3/25/2021 8:14:08
+example11@bar.com, Foo11, Bar, PT (UTC -8), '', 3/26/2021 8:14:08
+example12@bar.com, Foo12, Bar, ET (UTC -5), '', 3/26/2021 8:14:08

@@ -1,11 +1,15 @@
 {
   "name": "matchmaker",
-  "version": "1.0.0",
-  "description": "Match generator for creating internal donut style groups.",
+  "version": "1.0.1",
+  "description": "Matchmaking utility.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint **/*.js",
-    "lintfix": "eslint **/*.js --fix"
+    "mentor": "cd dist && node app.js --type=mentorship --addPeopleData",
+    "donut": "cd dist && node app.js --type=donut",
+    "dev": "NODE_ENV=development webpack --config ./config/webpack.config.js",
+    "build": "NODE_ENV=production webpack --config ./config/webpack.config.js",
+    "format": "npx prettier --write .",
+    "lint": "eslint {config,src}/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -18,17 +22,20 @@
   },
   "homepage": "https://github.com/mozilla/matchmaker#readme",
   "dependencies": {
+    "assert": "^2.0.0",
     "csv-parser": "^3.0.0",
     "csv-writer": "^1.6.0",
     "shuffle-array": "^1.0.1",
-    "yargs": "^16.2.0"
+    "yargs": "^17.3.0"
   },
   "devDependencies": {
-    "eslint": "^7.21.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "^2.2.1"
+    "eslint": "^8.2.0",
+    "path-browserify": "^1.0.1",
+    "prettier": "^2.4.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "engines": {
+    "node": ">=12.22.0"
   }
 }

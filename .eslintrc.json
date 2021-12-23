@@ -1,0 +1,22 @@
+{
+  "env": {
+    "webextensions": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": 1
+  },
+  "globals": {
+    "console": "readonly",
+    "document": "readonly",
+    "setTimeout": "readonly",
+    "window": "readonly",
+    "Blob": "readonly"
+  }
+}
