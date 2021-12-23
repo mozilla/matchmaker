@@ -38,7 +38,7 @@ This will split a list of users into randomly selected groups. The default group
 
 From the dist folder, run:
 
-- `node app.js --type=donut`.
+- `cd dist && node app.js --type=donut`.
 
 By default, this will use the examples/donut/input.csv file and generate a `donut-output-local.csv` file.
 

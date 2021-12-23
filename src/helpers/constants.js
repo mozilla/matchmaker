@@ -29,9 +29,9 @@ export const OUTPUT_HEADERS_DONUT = [
   },
 ];
 
-export const MENTOR_HEADER = 'Mentor (I want to provide coaching and support)';
-export const MENTEE_HEADER = 'Mentee (I want to receive coaching and support)';
-export const MENTOR_MENTEE_HEADER = 'Both';
+export const TYPE_MENTOR = 'mentor';
+export const TYPE_MENTEE = 'mentee';
+export const TYPE_BOTH = 'both';
 
 export const SAMPLES_DIR_DONUT = 'examples/donut/';
 export const SAMPLES_DIR_MENTORSHIP = 'examples/mentorship/';

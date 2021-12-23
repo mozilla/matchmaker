@@ -4,6 +4,8 @@
   "description": "Matchmaking utility.",
   "main": "index.js",
   "scripts": {
+    "mentor": "cd dist && node app.js --type=mentorship --addPeopleData",
+    "donut": "cd dist && node app.js --type=donut",
     "dev": "NODE_ENV=development webpack --config ./config/webpack.config.js",
     "build": "NODE_ENV=production webpack --config ./config/webpack.config.js",
     "format": "npx prettier --write .",
