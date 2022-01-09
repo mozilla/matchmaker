@@ -1,7 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-
 - [matchmaker](#matchmaker)
   - [development](#development)
   - [usage](#usage)
@@ -52,7 +51,7 @@ Usage example: `node app.js --type=donut --size=2 --output=foo.csv` to set group
 
 ### mentorship mode
 
-This will split a list of people who have signalled their desire to be mentors/mentees into randomized mentor/mentee pairs.
+This will split a list of people who have signalled their desire to be mentors/mentees into randomized mentor/mentee pairs. By default, uses the [sample input file](examples/mentorship/input.csv) and will create a file called `mentorship-output-local.csv`.
 
 From the dist folder, run:
 
@@ -60,4 +59,10 @@ From the dist folder, run:
 
 #### optional args
 
-- `addPeopleData` - boolean - defaults to false. When enabled, this will use content from people.mozilla.org and combine timezone, and reporting chain information into final results. Up to date content to use here can be collected via an add-on. Contact [Rachel](https://github.com/tublitzed/) for access. Usage - `node app.js --type=mentorship --addPeopleData`.
+Usage example: `node app.js --type=mentorship --addPeopleData --input=input.csv --output=matches.csv --inputPeople=people-data.csv`. Input and output paths are related to the repo root.
+
+- `addPeopleData` - boolean - defaults to false. When enabled, this will use content from people.mozilla.org and combine timezone, and reporting chain information into final results. Up to date content to use here can be collected via an add-on. Contact [Rachel](https://github.com/tublitzed/) for access.
+  - Usage - `node app.js --type=mentorship --addPeopleData`.
+- `input` - set input file. Defaults to `examples/mentorship/input.csv`.
+- `inputPeople` - set file to use with the `addPeopleData` flag. Defaults to `examples/mentorship/input-people-data.csv`.
+- `output` - set output file. Defaults to `mentorship-output-local.csv`.
