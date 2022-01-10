@@ -1,7 +1,7 @@
-Email,Name,Title,Manager,Location,Slug
-bar1@foo.com,Bahr Feu,Sr.Whatsit,Joe Schmo,US Remote(CO),feu
-baR2@foo.com,Bahr Feu,Sr.Whatsit,Joe Schmo,US Remote(NY),feu
-   bar3@foo.com    ,Bahr Feu,Sr.Whatsit,Joe Schmo,US Remote(CO),feu
-bar4@foo.com,Bahr Feu,Sr.Whatsit,Joe Schmo,Paris(Regional Paris Office),feu
-bar5@foo.com,Bahr Feu,Sr.Whatsit,Joe Schmo,US Remote(CO),feu
-bar6@foo.com,Bahr Feu,Sr.Whatsit,Joe Schmo,US Berlin Office,feu
+name,email,title,manager,org,slug,location,misc1,misc2,misc3
+Bahr Feu, BAR1@foo.com, Sr Whatsit, Joe Schmo, a, bahrfeu, US Remote(CO), random, stuff, here
+Bahr Feu, bar2@foo.com   , Whatsit, Joe Schmo, b, bahrfeu, US Remote(CO), random, stuff, here
+FooBar, bar3@foo.com, Sr Whatsit, Joe Schmo, a, foobar, US Remote(OR), random, stuff, here
+Bar Foo, bar4@foo.com, Sr Staff Whatsit, Joel Schmoel, a, barfoo, Berlin Office, random, stuff, here
+Bahr Feu,     bAr5@foo.com, Whatsit, Joe Schmo, a, bahrfeu, US Remote(NC), random, stuff, here
+  Bahr Feu, bar6@foo.com, Mgr of Whatsits, Jolene Schmoh, a, bahrfeu, US Remote(CO), random, stuff, here

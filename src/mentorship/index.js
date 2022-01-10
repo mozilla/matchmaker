@@ -35,18 +35,21 @@ const Mentorship = {
 
   addPeopleData: () => {
     const results = {};
-    const inputPeopleFile =
-      argv.inputPeople || `${SAMPLES_DIR}input-people-data.csv`;
+    const inputPeopleFile = argv.inputPeople
+      ? `${PATH_TO_ROOT}${argv.inputPeople}`
+      : `${SAMPLES_DIR}input-people-data.csv`;
     fs.createReadStream(inputPeopleFile)
       .pipe(csv())
       .on('data', (data) => {
-        const formattedEmail = Mentorship.formatEmail(data['Email']);
+        const formattedEmail = Mentorship.formatEmail(data['email']);
         results[formattedEmail] = {
-          location: data['Location'],
-          manager: data['Manager'],
-          name: data['Name'],
-          pmoLink: data['Slug'] ? `${PMO_PERSON_PREFIX}${data['Slug']}` : '',
-          title: data['Title'],
+          location: data['location'],
+          manager: data['manager'],
+          name: data['name'],
+          pmoLink: data['slug']
+            ? `${PMO_PERSON_PREFIX}${data['slug'].trim()}`
+            : '',
+          title: data['title'],
         };
       })
       .on('end', () => {
@@ -123,9 +126,12 @@ const Mentorship = {
   },
 
   generate: (peopleData = null) => {
-    const outputFile =
-      argv.output || `${PATH_TO_ROOT}mentorship-output-local.csv`;
-    const inputFile = argv.input || `${SAMPLES_DIR}input.csv`;
+    const outputFile = argv.output
+      ? `${PATH_TO_ROOT}${argv.output}`
+      : `${PATH_TO_ROOT}mentorship-output-local.csv`;
+    const inputFile = argv.input
+      ? `${PATH_TO_ROOT}${argv.input}`
+      : `${SAMPLES_DIR}input.csv`;
     const results = [];
     fs.createReadStream(inputFile)
       .pipe(csv())
